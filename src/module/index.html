@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using JavaScript Modules</title>
+
+</head>
+<body>
+    <button onclick="javascript:updateDate();">Click</button>
+    <div id="module-content"></div>
+    <script type="module" src="./index.mjs"></script>
+    <script type="module">
+        // The scope of module is not insert into global scope
+        // So, it's necessary set function on `window` object  
+        import {default as updateDate} from "./index.mjs";
+        window.updateDate = updateDate;
+    </script>
+</body>
+</html>
